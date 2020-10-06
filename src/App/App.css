@@ -1,0 +1,13 @@
+.todo{
+    border: 2px black solid; 
+    border-radius: 5px; 
+    display: flex;
+    align-content: center;
+    width:20%;
+    padding:10px;
+    margin:10px;
+}
+
+.todoDone{
+    background-color: lightgreen;
+}
