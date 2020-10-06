@@ -28,15 +28,12 @@ class App extends React.Component {
     const id = this.state.todos.length + 1;
     const emoji = e.target.parentElement.children[0].innerHTML;
     // console.log(e.target.parentElement.children[0].innerHTML);
-    //console.log(emoji)
     const newTodo = { id: id, emoji: emoji, todo: addedTodo };
     const joined = this.state.todos.concat(newTodo);
     this.setState({ todos: joined });
   }
 
-
   render() {
-
     return (
       <div className="App">
         <h1>Todo</h1>
