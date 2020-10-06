@@ -3,8 +3,6 @@ import Todo from '../components/todo';
 
 export default class Todos extends Component {
 
-
-
     render() {
         return (
             <div >
