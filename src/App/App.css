@@ -31,3 +31,17 @@
     display: flex;
 }
 
+.emoji-mart-bar{
+    display: none !important; 
+}
+
+.emoji-mart-search{
+    display: none !important; 
+}
+.reactions{
+    display:none;
+}
+
+.emojiList{
+    display:block;
+}
