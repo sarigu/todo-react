@@ -13,7 +13,7 @@ export default class Todo extends Component {
     }
 
     changeBgColor(e) {
-        console.log(e.target.parentElement);
+        //console.log(e.target.parentElement);
         e.target.parentElement.classList.toggle("todoDone");
     }
 
