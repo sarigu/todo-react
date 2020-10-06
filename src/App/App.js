@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Todos from '../pages/todos';
+import Form from '../pages/form';
 
 class App extends React.Component {
   state = {
@@ -21,11 +22,22 @@ class App extends React.Component {
   };
 
 
-  render() {
+  handleAddedTodo = (e) => {
+    //console.log("an update", e.target.previousSibling.value);
+    const addedTodo = e.target.previousSibling.value;
+    const id = this.state.todos.length + 1;
+    const emoji = e.target.parentElement.children[0].innerHTML;
+    // console.log(e.target.parentElement.children[0].innerHTML);
+    const newTodo = { id: id, emoji: emoji, todo: addedTodo };
+    const joined = this.state.todos.concat(newTodo);
+    this.setState({ todos: joined });
+  }
 
+  render() {
     return (
       <div className="App">
         <h1>Todo</h1>
+        <Form onAdded={this.handleAddedTodo} />
         <Todos todos={this.state.todos} onDelete={this.handleDelete} />
       </div>
     );
