@@ -2,6 +2,10 @@ import React from 'react';
 import './App.css';
 import Todos from '../pages/todos';
 import Form from '../pages/form';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Nav from '../pages/nav';
+import About from '../pages/about';
+
 
 let emoji = "";
 
@@ -40,11 +44,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Todo</h1>
-        <Form onAdded={this.handleAddedTodo} onAddedEmoji={this.getEmoji} />
-        <Todos todos={this.state.todos} onDelete={this.handleDelete} />
-      </div>
+      <Router>
+        <div className="App">
+          <Nav />
+          <Switch>
+            <Route path="/" exact>
+              <div>
+                <h1>Todo</h1>
+                <Form onAdded={this.handleAddedTodo} onAddedEmoji={this.getEmoji} />
+                <Todos todos={this.state.todos} onDelete={this.handleDelete} />
+              </div>
+            </Route>
+            <Route path="/about" component={About}></Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
