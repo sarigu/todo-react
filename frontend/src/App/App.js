@@ -55,10 +55,10 @@ class App extends React.Component {
 
 
     console.log(newTodo);
-    axios.post('/update', newTodo);
-
-
-    number++;
+    axios.post('/update', newTodo).then(response =>
+      //console.log(response.data)
+      this.setState({ todos: response.data.data })
+    );
 
     //const joined = this.state.todos.concat(newTodo);
     //this.setState({ todos: joined });

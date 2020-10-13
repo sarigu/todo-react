@@ -4,7 +4,6 @@ const app = express();
 const port = 5000;
 
 var jsonParser = bodyParser.json();
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 let todos = [
     { id: 1, emoji: '😂', todo: 'todo1' },
@@ -23,9 +22,21 @@ app.delete("/todos/:id", (req, res) => {
 });
 
 // POST /api/users gets JSON bodies
-app.post('/update', jsonParser, function (req, res) {
+app.post('/update', jsonParser, (req, res) => {
     // create user in req.body
-    console.log(req.body.todo);
+    let id = req.body.id;
+    let emoji = req.body.emoji;
+    let todo = req.body.todo;
+    let newTodo = {
+        id: id,
+        emoji: emoji,
+        todo: todo
+    };
+    todos.push(newTodo);
+    console.log(todos);
+
+    return res.send({ data: todos });
+
 })
 
 
