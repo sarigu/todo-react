@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import Todos from '../pages/todos';
 import Form from '../pages/form';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from '../pages/nav';
 import About from '../pages/about';
+import axios from 'axios';
 
 
 let emoji = "";
@@ -12,13 +13,15 @@ let emoji = "";
 class App extends React.Component {
   state = {
     todos: [
-      { id: 1, emoji: 'books', todo: 'todo1' },
-      { id: 2, emoji: 'wine', todo: 'todo2' },
-      { id: 3, emoji: 'ball', todo: 'todo3' },
-      { id: 4, emoji: 'apple', todo: 'todo4' }
     ]
   };
 
+  componentDidMount = () => {
+    axios.get("/chairs").then(response =>
+      //console.log(response.data.data));
+      this.setState({ todos: response.data.data })
+    );
+  }
 
   handleDelete = todoId => {
     const todos = this.state.todos.filter(todo => todo.id !== todoId);
@@ -29,8 +32,6 @@ class App extends React.Component {
     emoji = emojiObject;
     console.log(emoji);
   };
-
-
 
   handleAddedTodo = (e) => {
     const addedTodo = e.target.previousSibling.value;
