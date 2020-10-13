@@ -17,15 +17,23 @@ class App extends React.Component {
   };
 
   componentDidMount = () => {
-    axios.get("/chairs").then(response =>
+    axios.get("/todos").then(response =>
       //console.log(response.data.data));
       this.setState({ todos: response.data.data })
     );
   }
 
   handleDelete = todoId => {
-    const todos = this.state.todos.filter(todo => todo.id !== todoId);
-    this.setState({ todos });
+    // const todos = this.state.todos.filter(todo => todo.id !== todoId);
+    //this.setState({ todos });
+
+
+    axios.delete("/todos/" + todoId)
+      .then(response =>
+        //console.log(response.data)
+        this.setState({ todos: response.data.data })
+      );
+
   };
 
   getEmoji = emojiObject => {

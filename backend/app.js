@@ -9,7 +9,12 @@ let todos = [
     { id: 4, emoji: 'apple', todo: 'todo4' }
 ];
 
-app.get("/chairs", (req, res) => {
+app.get("/todos", (req, res) => {
+    return res.send({ data: todos });
+});
+
+app.delete("/todos/:id", (req, res) => {
+    todos = todos.filter(todo => todo.id !== Number(req.params.id));
     return res.send({ data: todos });
 });
 
