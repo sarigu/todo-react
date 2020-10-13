@@ -28,11 +28,10 @@ class App extends React.Component {
     //this.setState({ todos });
 
 
-    axios.delete("/todos/", todoId)
-      .then(response =>
-        //console.log(response.data)
-        this.setState({ todos: response.data.data })
-      );
+    axios.delete("/todos/" + todoId).then(response =>
+      //console.log(response.data)
+      this.setState({ todos: response.data.data })
+    );
 
   };
 
@@ -59,6 +58,8 @@ class App extends React.Component {
       //console.log(response.data)
       this.setState({ todos: response.data.data })
     );
+
+    number++;
 
     //const joined = this.state.todos.concat(newTodo);
     //this.setState({ todos: joined });
