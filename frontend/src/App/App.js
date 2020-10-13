@@ -28,7 +28,7 @@ class App extends React.Component {
     //this.setState({ todos });
 
 
-    axios.delete("/todos/" + todoId)
+    axios.delete("/todos/", todoId)
       .then(response =>
         //console.log(response.data)
         this.setState({ todos: response.data.data })
@@ -42,12 +42,26 @@ class App extends React.Component {
   };
 
   handleAddedTodo = (e) => {
+    e.preventDefault();
+    let number = 5;
     const addedTodo = e.target.previousSibling.value;
-    const id = this.state.todos.length + 1;
+    const id = number;
     const selectedEmoji = emoji;
-    const newTodo = { id: id, emoji: selectedEmoji, todo: addedTodo };
-    const joined = this.state.todos.concat(newTodo);
-    this.setState({ todos: joined });
+    const newTodo = {
+      id: id,
+      emoji: selectedEmoji,
+      todo: addedTodo
+    }
+
+
+    console.log(newTodo);
+    axios.post('/update', newTodo);
+
+
+    number++;
+
+    //const joined = this.state.todos.concat(newTodo);
+    //this.setState({ todos: joined });
   };
 
 
