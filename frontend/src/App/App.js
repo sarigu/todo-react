@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from '../pages/nav';
 import About from '../pages/about';
 import axios from 'axios';
+import uuid from 'react-uuid'
 
 
 let emoji = "";
@@ -42,9 +43,8 @@ class App extends React.Component {
 
   handleAddedTodo = (e) => {
     e.preventDefault();
-    let number = 5;
     const addedTodo = e.target.previousSibling.value;
-    const id = number;
+    const id = uuid();
     const selectedEmoji = emoji;
     const newTodo = {
       id: id,
@@ -59,7 +59,6 @@ class App extends React.Component {
       this.setState({ todos: response.data.data })
     );
 
-    number++;
 
     //const joined = this.state.todos.concat(newTodo);
     //this.setState({ todos: joined });

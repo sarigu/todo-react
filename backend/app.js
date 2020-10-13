@@ -6,10 +6,10 @@ const port = 5000;
 var jsonParser = bodyParser.json();
 
 let todos = [
-    { id: 1, emoji: '😂', todo: 'todo1' },
-    { id: 2, emoji: '🏵️', todo: 'todo2' },
-    { id: 3, emoji: '🐲', todo: 'todo3' },
-    { id: 4, emoji: '🤩', todo: 'todo4' }
+    { id: "1dq894032894", emoji: '😂', todo: 'todo1' },
+    { id: "2dwio213", emoji: '🏵️', todo: 'todo2' },
+    { id: "3", emoji: '🐲', todo: 'todo3' },
+    { id: "4", emoji: '🤩', todo: 'todo4' }
 ];
 
 app.get("/todos", (req, res) => {
@@ -17,7 +17,8 @@ app.get("/todos", (req, res) => {
 });
 
 app.delete("/todos/:id", (req, res) => {
-    todos = todos.filter(todo => todo.id !== Number(req.params.id));
+    console.log(req.params.id);
+    todos = todos.filter(todo => todo.id !== req.params.id);
     return res.send({ data: todos });
 });
 
