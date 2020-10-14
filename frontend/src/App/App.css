@@ -1,20 +1,127 @@
+/*  ///// General Styling  ///// */
+
+h1{
+    text-align: center;
+    margin:40px 0 50px 0;
+}
+
+button:hover, .emoji-mart-category span:hover{
+    cursor: pointer;
+}
+
+/*  ///// Nav ///// */
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height:40px;
+    background-color: aliceblue;
+}
+
+nav li{
+    float: right;
+    padding:10px;
+    color: black;
+    text-decoration: none;
+}
+
+nav li:hover {
+    cursor: pointer;
+    color: rgb(139, 138, 138);
+}
+  
+
+/*  ///// Todos  ///// */
+
+.todoList{
+    margin:35px auto;
+    width:60vw;
+    padding:0;
+}
+
 .todo{
     border: 2px black solid; 
     border-radius: 5px; 
     display: flex;
     align-content: center;
-    width:20%;
-    padding:10px;
-    margin:10px;
+    padding:10px 0 10px 0;
+    margin:10px 0 10px 0;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
 }
+
+
+.todo span{
+    width:30px;
+    height:30px;
+    font-size:30px;
+    margin:  10px;
+}
+
+.todo p{
+    width:50%;
+}
+
+.todo button{
+    width:50px;
+    height:50px;
+    font-size:25px;
+    border: none !important;
+    background-color: transparent;
+}
+
 
 .todoDone{
     background-color: lightgreen;
 }
 
+/*  ///// Form  ///// */
 
 .todoForm{
     display: flex;
+    width:60vw;
+    margin:auto;
+    justify-content: space-evenly;
+}
+
+
+.inputContainer * {  
+    border: 2px black solid; 
+    border-radius: 5px; 
+    padding:10px;
+    height: 50px;
+}
+
+.formInput {
+    max-height: 25px !important;
+    margin-right:5px;
+}
+
+.formBtn {
+    background-color: transparent;
+    width:60px;
+}
+
+.emojiContainer{
+    position: relative;
+}
+
+.emojiLabel{
+    border: 2px black solid; 
+    border-radius: 5px; 
+    padding:10px;
+    width: 170px;
+    text-align: center;
+}
+
+.emojiLabel:hover{
+    cursor: pointer;
+}
+
+.emoji-mart{
+    width: 190px !important;
+    padding:10px;
 }
 
 .emoji-mart-bar{
@@ -24,11 +131,19 @@
 .emoji-mart-search{
     display: none !important; 
 }
+
 .reactions{
-    display:block;
+    display:none;
+    position: absolute;
 }
 
 .emojiList{
-    display:none;
+    display:block;
 }
 
+
+/*  ///// About  ///// */
+
+.about{
+    text-align: center;
+}

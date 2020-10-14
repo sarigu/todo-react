@@ -26,7 +26,7 @@ class App extends React.Component {
     );
   };
 
-  getEmoji = emojiObject => {
+  handleGetEmoji = emojiObject => {
     emoji = emojiObject;
   };
 
@@ -58,7 +58,7 @@ class App extends React.Component {
             <Route path="/" exact>
               <div>
                 <h1>Todo</h1>
-                <Form onAdded={this.handleAddedTodo} onAddedEmoji={this.getEmoji} />
+                <Form onAdded={this.handleAddedTodo} onAddedEmoji={this.handleGetEmoji} />
                 <Todos todos={this.state.todos} onDelete={this.handleDelete} />
               </div>
             </Route>

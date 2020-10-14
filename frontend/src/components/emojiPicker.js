@@ -7,18 +7,18 @@ export default class EmojiPicker extends Component {
     constructor(props) {
         super(props);
         this.emojiPicker = React.createRef();
-
     }
 
     render() {
         return (
-            <div>
-                <div onClick={this.showEmojis} >Choose an emoji</div>
+            <div className="emojiContainer">
+                <div className="emojiLabel" onClick={this.showEmojis} >Add an emoji &#128522;</div>
                 <div className="reactions" ref={this.emojiPicker}>
                     <Picker
                         showPreview={false}
                         showSkinTones={false}
                         onSelect={(emoji) => { this.props.onAddedEmoji(emoji.native) }}
+
                     />
                 </div>
             </div>
@@ -27,14 +27,12 @@ export default class EmojiPicker extends Component {
     }
 
     componentDidUpdate = () => {
-        // console.log(this.emojiPicker.current);
         this.emojiPicker.current.classList.toggle("emojiList");
     }
 
 
     showEmojis(e) {
         //next sibling is the emoji picker
-        console.log(e.target.nextSibling);
         e.target.nextSibling.classList.toggle("emojiList");
     }
 
