@@ -12,56 +12,40 @@ import uuid from 'react-uuid'
 let emoji = "";
 
 class App extends React.Component {
-  state = {
-    todos: [
-    ]
-  };
+  state = {};
 
   componentDidMount = () => {
     axios.get("/todos").then(response =>
-      //console.log(response.data.data));
       this.setState({ todos: response.data.data })
     );
   }
 
   handleDelete = todoId => {
-    // const todos = this.state.todos.filter(todo => todo.id !== todoId);
-    //this.setState({ todos });
-
-
     axios.delete("/todos/" + todoId).then(response =>
-      //console.log(response.data)
       this.setState({ todos: response.data.data })
     );
-
   };
 
   getEmoji = emojiObject => {
     emoji = emojiObject;
-    console.log(emoji);
   };
 
   handleAddedTodo = (e) => {
     e.preventDefault();
+
     const addedTodo = e.target.previousSibling.value;
     const id = uuid();
     const selectedEmoji = emoji;
+
     const newTodo = {
       id: id,
       emoji: selectedEmoji,
       todo: addedTodo
     }
 
-
-    console.log(newTodo);
-    axios.post('/update', newTodo).then(response =>
-      //console.log(response.data)
+    axios.post('/todos', newTodo).then(response =>
       this.setState({ todos: response.data.data })
     );
-
-
-    //const joined = this.state.todos.concat(newTodo);
-    //this.setState({ todos: joined });
   };
 
 

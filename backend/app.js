@@ -17,24 +17,20 @@ app.get("/todos", (req, res) => {
 });
 
 app.delete("/todos/:id", (req, res) => {
-    console.log(req.params.id);
     todos = todos.filter(todo => todo.id !== req.params.id);
     return res.send({ data: todos });
 });
 
-// POST /api/users gets JSON bodies
-app.post('/update', jsonParser, (req, res) => {
-    // create user in req.body
-    let id = req.body.id;
-    let emoji = req.body.emoji;
-    let todo = req.body.todo;
+
+app.post('/todos', jsonParser, (req, res) => {
+
     let newTodo = {
-        id: id,
-        emoji: emoji,
-        todo: todo
+        id: req.body.id,
+        emoji: req.body.emoji,
+        todo: req.body.todo
     };
+
     todos.push(newTodo);
-    console.log(todos);
 
     return res.send({ data: todos });
 

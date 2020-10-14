@@ -12,20 +12,6 @@
     background-color: lightgreen;
 }
 
-/*.dot{
-    background-color: blue;
-    width:4em;
-    height:4em;
-    border-radius: 50%;
-}
-
-.emoji-picker-react{
-    display: flex !important;
-}
-
-.hide-emojis{
-    display: none !important;
-}*/
 
 .todoForm{
     display: flex;
@@ -39,9 +25,10 @@
     display: none !important; 
 }
 .reactions{
-    display:none;
+    display:block;
 }
 
 .emojiList{
-    display:block;
+    display:none;
 }
+
