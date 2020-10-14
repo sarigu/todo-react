@@ -31,7 +31,6 @@ nav li:hover {
     color: rgb(139, 138, 138);
 }
   
-
 /*  ///// Todos  ///// */
 
 .todoList{
@@ -71,7 +70,6 @@ nav li:hover {
     background-color: transparent;
 }
 
-
 .todoDone{
     background-color: lightgreen;
 }
@@ -84,7 +82,6 @@ nav li:hover {
     margin:auto;
     justify-content: space-evenly;
 }
-
 
 .inputContainer * {  
     border: 2px black solid; 
@@ -140,7 +137,6 @@ nav li:hover {
 .emojiList{
     display:block;
 }
-
 
 /*  ///// About  ///// */
 

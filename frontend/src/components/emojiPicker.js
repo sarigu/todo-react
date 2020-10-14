@@ -18,7 +18,6 @@ export default class EmojiPicker extends Component {
                         showPreview={false}
                         showSkinTones={false}
                         onSelect={(emoji) => { this.props.onAddedEmoji(emoji.native) }}
-
                     />
                 </div>
             </div>
@@ -29,7 +28,6 @@ export default class EmojiPicker extends Component {
     componentDidUpdate = () => {
         this.emojiPicker.current.classList.toggle("emojiList");
     }
-
 
     showEmojis(e) {
         //next sibling is the emoji picker

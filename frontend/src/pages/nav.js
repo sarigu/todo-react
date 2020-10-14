@@ -12,11 +12,9 @@ export default class Nav extends Component {
                     <Link to="/">
                         <li>Home</li>
                     </Link>
-
                 </ul>
             </nav>
         );
-
     }
 }
 

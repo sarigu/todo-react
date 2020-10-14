@@ -8,7 +8,6 @@ export default class About extends Component {
                 <p>This is the first mandatory assignment in Node.js/React.</p>
             </div>
         );
-
     }
 }
 

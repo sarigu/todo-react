@@ -8,7 +8,6 @@ import About from '../pages/about';
 import axios from 'axios';
 import uuid from 'react-uuid'
 
-
 let emoji = "";
 
 class App extends React.Component {
@@ -26,7 +25,7 @@ class App extends React.Component {
     );
   };
 
-  handleGetEmoji = emojiObject => {
+  handleEmoji = emojiObject => {
     emoji = emojiObject;
   };
 
@@ -58,7 +57,7 @@ class App extends React.Component {
             <Route path="/" exact>
               <div>
                 <h1>Todo</h1>
-                <Form onAdded={this.handleAddedTodo} onAddedEmoji={this.handleGetEmoji} />
+                <Form onAdded={this.handleAddedTodo} onAddedEmoji={this.handleEmoji} />
                 <Todos todos={this.state.todos} onDelete={this.handleDelete} />
               </div>
             </Route>

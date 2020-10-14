@@ -4,25 +4,24 @@ export default class Todo extends Component {
 
     constructor(props) {
         super(props);
-        this.todoElem = React.createRef();
+        this.todoListItem = React.createRef();
     }
-
 
     render() {
         return (
-            <li className={"todo"} ref={this.todoElem}>
+            <li className={"todo"} ref={this.todoListItem}>
                 <span>{this.props.todo.emoji}</span>
                 <p>{this.props.todo.todo}</p>
                 <div className={"todoButtons"}>
-                    <button onClick={this.changeBgColor}>&#9989;</button>
+                    <button onClick={this.changeBackgroundColor}>&#9989;</button>
                     <button onClick={() => this.props.onDelete(this.props.todo.id)}>&#x1f5d1;</button>
                 </div>
             </li>
         );
     }
 
-    changeBgColor = () => {
-        this.todoElem.current.classList.toggle("todoDone");
+    changeBackgroundColor = () => {
+        this.todoListItem.current.classList.toggle("todoDone");
     }
 
 
